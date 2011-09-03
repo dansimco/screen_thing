@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script type="text/javascript" charset="utf-8" src="gifs.js"></script>
+    <script type="text/javascript" charset="utf-8" src="mootools.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      window.addEvent('domready', function(){
+        index = 0;
+        shift = function(){
+          index++;
+          if (index == gifs.length-1) index = 0;
+          img = gifs[index];
+          $('canvas').setStyle('background-image','url('+img+')');          
+          $('canvas').setStyle('-webkit-transform','scale('+Math.random()+')');          
+        }
+        shift();
+        var shifter = shift.periodical(30000);
+      });
+    </script>
+    <style type="text/css" media="screen">
+      * {
+        overflow: hidden;
+      }
+      #canvas {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+  </body>
+</html>
